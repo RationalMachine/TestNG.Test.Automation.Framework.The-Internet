@@ -24,15 +24,15 @@ import java.util.Map;
 public class DriverInitializer {
 
     public WebDriver driver;
-    public static final File file2=new File("src/main/resources/chromedriver");
-    public static final String CHROMEDRIVER_PATH=file2.getAbsolutePath();
     public static final Logger logger= LoggerFactory.getLogger(DriverInitializer.class);
+
 
     @BeforeMethod
     public void setUp(){
 
         String userHome=System.getProperty("user.home");
-        System.setProperty("webdriver.chrome.driver",CHROMEDRIVER_PATH);
+
+        System.setProperty("webdriver.chrome.driver",getDriverAbsolutePath());
         ChromeOptions options=new ChromeOptions();
         Map<String, Object> preferences = new HashMap<String, Object>();
         preferences.put("credentials_enable_service", false);
@@ -100,6 +100,19 @@ public class DriverInitializer {
 
     public void reportLog(String message){
         logger.info("Message: {}",message);
+    }
+
+    public String getDriverAbsolutePath(){
+        String OSname=System.getProperty("os.name").toUpperCase();
+        String CHROMEDRIVER_PATH="";
+        if(OSname.contains("MAC")) {
+            File file2=new File("src/main/resources/"+"chromedriver_mac");
+            CHROMEDRIVER_PATH=file2.getAbsolutePath();
+        }else if(OSname.contains("LINUX")){
+            File file3=new File("src/main/resources/"+"chromedriver_linux");
+            CHROMEDRIVER_PATH=file3.getAbsolutePath();
+        }
+        return CHROMEDRIVER_PATH;
     }
 
 }
