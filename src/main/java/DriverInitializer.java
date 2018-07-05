@@ -39,6 +39,7 @@ public class DriverInitializer {
         preferences.put("password_manager_enabled", false);
         options.setExperimentalOption("prefs",preferences);
         options.addArguments("disable-infobars");
+        options.addArguments("--disable-dev-shm-usage");
         options.addArguments("start-maximized");
         driver=new ChromeDriver(options);
         logger.info("Driver has been invoked");
