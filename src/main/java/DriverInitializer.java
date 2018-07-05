@@ -109,9 +109,11 @@ public class DriverInitializer {
         if(OSname.contains("MAC")) {
             File file2=new File("src/main/resources/"+"chromedriver_mac");
             CHROMEDRIVER_PATH=file2.getAbsolutePath();
+            logger.info("Chromedriver for MAC has been invoked");
         }else if(OSname.contains("LINUX")){
             File file3=new File("src/main/resources/"+"chromedriver_linux");
             CHROMEDRIVER_PATH=file3.getAbsolutePath();
+            logger.info("Chromedriver for Linux has been invoked");
         }
         return CHROMEDRIVER_PATH;
     }
