@@ -16,7 +16,9 @@ import java.util.stream.Collectors;
 public class DragAndDropJSHelper {
 
     private String dragndrop_js = null;
-    private String path="/Users/himrekha/IdeaProjects/TheInternet/src/main/resources/DragAndDrop.js";
+    //private String path="/Users/himrekha/IdeaProjects/TheInternet/src/main/resources/DragAndDrop.js";
+    File file4=new File("src/main/resources/DragAndDrop.js");
+    private String path=file4.getAbsolutePath();
 
     public DragAndDropJSHelper()  {
         // the javascript file must be read into a single string no line breaks
