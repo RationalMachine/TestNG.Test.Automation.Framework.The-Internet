@@ -15,6 +15,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.slf4j.Logger;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,11 +24,14 @@ import java.util.Map;
 public class DriverInitializer {
 
     public WebDriver driver;
-    public static final String CHROMEDRIVER_PATH="/Users/himrekha/IdeaProjects/TheInternet/src/main/resources/chromedriver";
+    public static final File file2=new File("src/main/resources/chromedriver");
+    public static final String CHROMEDRIVER_PATH=file2.getAbsolutePath();
     public static final Logger logger= LoggerFactory.getLogger(DriverInitializer.class);
 
     @BeforeMethod
     public void setUp(){
+
+        String userHome=System.getProperty("user.home");
         System.setProperty("webdriver.chrome.driver",CHROMEDRIVER_PATH);
         ChromeOptions options=new ChromeOptions();
         Map<String, Object> preferences = new HashMap<String, Object>();
