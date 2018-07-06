@@ -31,17 +31,20 @@ import java.util.Map;
 public class DriverInitializer{
 
     public WebDriver driver;
-    private static final String REPORTER_PATH="/Users/himrekha/IdeaProjects/TheInternet/ExtentReport.html";
+    File reporterPathBuilder=new File("ExtentReport.html");
+    private final String REPORTER_PATH=reporterPathBuilder.getAbsolutePath();
+    File screenshotPathBuilder=new File("Screenshots/");
+    private final String SCREENSHOT_ROOT = screenshotPathBuilder.getAbsolutePath();
     public static ExtentHtmlReporter htmlReporter;
     public static ExtentReports extentReports;
     public static ExtentTest extentTest;
 
     static{
-        System.setProperty("logback.configurationFile", "/Users/himrekha/" +
-                "IdeaProjects/TheInternet/src/main/resources/logback.xml");
+        File logbackPathBuilder=new File("src/main/resources/logback.xml");
+        System.setProperty("logback.configurationFile", logbackPathBuilder.getAbsolutePath());
         }
     public static final Logger logger= LoggerFactory.getLogger(DriverInitializer.class);
-    private static final String SCREENSHOT_ROOT = "/Users/himrekha/IdeaProjects/TheInternet/Screenshots/";
+
 
     @BeforeSuite
     public void initializing(){
