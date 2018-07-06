@@ -88,7 +88,7 @@ public class DriverInitializer{
             TakesScreenshot ts=(TakesScreenshot)driver;
             try{
                 File src=ts.getScreenshotAs(OutputType.FILE);
-                String screenPath=SCREENSHOT_ROOT+iTestResult.getName()+".png";
+                String screenPath=SCREENSHOT_ROOT+"/"+iTestResult.getName()+".png";
                 FileUtils.copyFile(src, new File(screenPath));
                 extentTest.addScreenCaptureFromPath(screenPath);
             } catch (IOException e) {
