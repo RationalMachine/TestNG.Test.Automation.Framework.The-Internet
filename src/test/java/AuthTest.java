@@ -10,6 +10,7 @@ public class AuthTest extends DriverInitializer{
 
     @Test
     public void basicAuthenticationTest() throws InterruptedException {
+        extentTest=extentReports.createTest("Regression Test");
         MainPageObject mainPageObject=new MainPageObject(driver);
         BasicAuthPageObject basicAuthPageObject=mainPageObject.openAuthPage();
         waitForSomeTime(2);

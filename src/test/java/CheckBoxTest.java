@@ -11,6 +11,7 @@ public class CheckBoxTest extends DriverInitializer{
 
     @Test
     public void checkBoxTest(){
+        extentTest=extentReports.createTest("Regression Test");
         MainPageObject mainPageObject=new MainPageObject(driver);
         CheckBoxPageObject checkBoxPageObject=mainPageObject.openCheckBoxPage();
         checkBoxPageObject.checkUnCheckBoxes();

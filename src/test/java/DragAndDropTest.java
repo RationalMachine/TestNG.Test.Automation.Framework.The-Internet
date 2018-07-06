@@ -11,6 +11,7 @@ public class DragAndDropTest extends DriverInitializer {
 
     @Test
     public void dragAndDropTestLeftToRight(){
+        extentTest=extentReports.createTest("Regression Test");
         MainPageObject mainPageObject=new MainPageObject(driver);
         DragAndDropPageObject dragAndDropPageObject=mainPageObject.openDragPage();
         DragAndDropJSHelper ddh = new DragAndDropJSHelper();
